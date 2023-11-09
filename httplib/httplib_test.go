@@ -15,7 +15,6 @@
 package httplib
 
 import (
-	"io/ioutil"
 	"os"
 	"strings"
 	"testing"
@@ -199,7 +198,7 @@ func TestToFile(t *testing.T) {
 		t.Fatal(err)
 	}
 	defer os.Remove(f)
-	b, err := ioutil.ReadFile(f)
+	b, err := os.ReadFile(f)
 	if n := strings.Index(string(b), "origin"); n == -1 {
 		t.Fatal(err)
 	}
